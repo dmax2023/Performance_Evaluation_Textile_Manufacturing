@@ -1,0 +1,580 @@
+---
+title: "IEEE_Performance_Evaluation_Textile_Manufacturing"
+author: "Edson Silva"
+date: "2023-03-18"
+output: html_document
+---
+
+
+
+```{r someplot1,warning=FALSE,message=FALSE,echo = FALSE}
+
+library(tidyr)
+library(dplyr)
+library(plotly)
+library(chron)
+library(ggplot2)
+library(lubridate)
+library(dbplyr)
+library(scales)
+
+TMRR_1C<-c(82.87414782,
+82.53228367,
+81.89837844,
+79.92651824,
+62.98934376,
+23.21377478,
+14.67477696,
+12.16523739,
+10.94119875,
+10.2021183, 
+9.702383602,
+9.339865125,
+9.06392001, 
+8.846365409,
+8.670181839,
+8.524444068)
+
+
+TMRR_2C<-c(58.01891514,
+57.28799108,
+55.98951967,
+50.50346615,
+18.3316592, 
+12.25391359,
+10.47883829,
+9.585959282,
+9.04317691, 
+8.678729331,
+8.417947383,
+8.22271934, 
+8.071491945,
+7.951159406,
+7.853304222,
+7.772281569)
+
+
+TMRR_3C<-c(49.77131115,
+49.05080465,
+47.58169092,
+39.15975768,
+15.82714248,
+11.76586118,
+10.21447366,
+9.386027576,
+8.877520837,
+8.53756532, 
+8.296159012,
+8.116778811,
+7.978690979,
+7.869342692,
+7.780733448,
+7.707544693)
+
+TMRR_4C<-c(45.73677269,
+45.05502941,
+43.51974859,
+34.18760445,
+15.84874978,
+11.90237688,
+10.26384135,
+9.393722285,
+8.869492955,
+8.524680678,
+8.282669216,
+8.104234429,
+7.967554535,
+7.859648074,
+7.772357864,
+7.700320735)
+
+
+TMRR_5C<-c(43.43669236,
+42.78131278,
+41.21238602,
+32.15851801,
+16.39149435,
+12.15519344,
+10.35365446,
+9.424913463,
+8.880048979,
+8.527756915,
+8.282998178,
+8.103596534,
+7.96663841,
+7.858718705,
+7.77151033,
+7.699581213)
+
+TMC1<-c(0.083,0.250,0.5,1,2,3,4,5,6,7,8,9,10,11,12,13)
+
+
+cores_barras<-c("#E6E6E6","#666666")
+pch=c(15,15)
+labels<-data.frame(xlab="Tempo de corte",ylab="Tempo médio de resposta")
+
+plot(TMC1,TMRR_1C,type="o",col="black",pch=3,
+     xlab ="Tempo médio de corte (horas)",ylab = "Tempo de resposta (horas)",main = "Tempo de produção do lote na infraestrutura",
+mgp=c(2.5,0.5,0),lwd.ticks=0.2,las=2,ylim=c(0,100),xaxt="n",cex=0.6,cex.axis=1,xaxs="r")
+
+axis(side = 1, at = c(0.083,0.25,0.5,1,2,3,4,5,6,7,8,9,10,11,12,13), labels = c("0.083", "0.25", "0.5", "1", "2","3","4","5","6","7","8","9","10","11","12","13"), las=2)
+
+
+#axis(1,at=c(TMC1),las=2,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+
+lines(TMC1,TMRR_1C,type="o",col="black",pch=3)
+lines(TMC1,TMRR_2C,type="o",col="yellow",pch=12)
+lines(TMC1,TMRR_3C,type="o",col="red",pch=6)
+lines(TMC1,TMRR_4C,type="o",col="blue",pch=8)
+lines(TMC1,TMRR_5C,type="o",col="purple",pch=10)
+
+
+legend("topright",pch=c(3,12,6,8,10),
+       title="Células acionadas:",
+       legend=c("1 Cél. Cost.","2 Cél. Cost.","3 Cél. Cost.","4 Cél. Cost.","5 Cél. Cost."),
+       col=c("Black","yellow","red","blue","purple","green"),
+       lty=1,5,cex = 0.8)
+
+```
+
+
+
+
+```{r someplot9,warning=FALSE,message=FALSE,echo = FALSE}
+
+
+library(tidyr)
+library(dplyr)
+library(plotly)
+library(chron)
+library(ggplot2)
+library(lubridate)
+library(dbplyr)
+library(scales)
+
+TMVV_1C<-c(0.23809524,
+0.23809524,
+0.23809524,
+0.2380952339,
+0.2375386205,
+0.2169110797,
+0.1876025177,
+0.1629905120,
+0.1430578608,
+0.1269365711,
+0.1137840258,
+0.1029258958,
+0.0938508786,
+0.0861763228,
+0.0796151650,
+0.0739501553)
+
+TMVV_2C<-c(0.337551714,
+0.33918795,
+0.341165358,
+0.3440996889,
+0.3196853470,
+0.2662706737,
+0.2205182446,
+0.1853319126,
+0.1586413641,
+0.1381281895,
+0.1220442602,
+0.1091734766,
+0.0986789905,
+0.0899785029,
+0.0826593654,
+0.0764232478)
+
+
+TMVV_3C<-c(0.392074032,
+0.393680982,
+0.395758776,
+0.3984212968,
+0.3583629586,
+0.2910845498,
+0.2350338284,
+0.1938491936,
+0.1638159032,
+0.1414036347,
+0.1242003165,
+0.1106432319,
+0.0997120753,
+0.0907242951,
+0.0832104400,
+0.0768388320)
+
+
+TMVV_4C<-c(0.425946192,
+0.427110912,
+0.428611476,
+0.4293480272,
+0.3835194484,
+0.3058619832,
+0.2422973057,
+0.1974179925,
+0.1656611947,
+0.1424159313,
+0.1247871100,
+0.1110002328,
+0.0999385300,
+0.0908731991,
+0.0833114416,
+0.0769092182)
+
+TMVV_5C<-c(0.448164444,
+0.448939098,
+0.449866182,
+0.4488458124,
+0.4015331545,
+0.3152199752,
+0.2460372958,
+0.1989252911,
+0.1663165166,
+0.1427252116,
+0.1249442466,
+0.1110852848,
+0.0999871087,
+0.0909022460,
+0.0833295054,
+0.0769208396)
+
+
+TMC1<-c(0.083,0.25,0.5,1,2,3,4,5,6,7,8,9,10,11,12,13)
+
+cores_barras<-c("#E6E6E6","#666666")
+pch=c(15,15)
+labels<-data.frame(xlab="Tempo de corte",ylab="Vazão (Lotes / horas)")
+
+plot(TMC1,TMVV_1C,type="o",col="black",pch=3,
+     xlab ="Tempo médio de corte (horas)",ylab = "Vazão (Lotes / horas)",main = "Vazão de lotes na infraestrutura",
+     mgp=c(2.5,0.5,0),lwd.ticks=0.2,las=2,ylim=c(0.001,0.5),xaxt="n",cex=0.6,cex.axis=1,xaxs="r")
+
+axis(side = 1, at = c(0.083,0.25,0.5,1,2,3,4,5,6,7,8,9,10,11,12,13), labels = c("0.083", "0.25", "0.5", "1", "2","3","4","5","6","7","8","9","10","11","12","13"), las=2)
+
+
+lines(TMC1,TMVV_1C,type="o",col="black",pch=3)
+lines(TMC1,TMVV_2C,type="o",col="yellow",pch=12)
+lines(TMC1,TMVV_3C,type="o",col="red",pch=6)
+lines(TMC1,TMVV_4C,type="o",col="blue",pch=8)
+lines(TMC1,TMVV_5C,type="o",col="purple",pch=10)
+
+
+legend("topright",pch=c(3,12,6,8,10),
+       title="Células acionadas:",
+       legend=c("1 Cél. Cost.","2 Cél. Cost.","3 Cél. Cost.","4 Cél. Cost.","5 Cél. Cost."),
+       col=c("Black","yellow","red","blue","purple","green"),
+       lty=1,5,cex = 0.8)
+
+
+```
+
+
+
+
+```{r someplot7,warning=FALSE,message=FALSE,warning=FALSE,echo = FALSE}  
+
+
+library(tidyr)
+library(dplyr)
+library(plotly)
+library(chron)
+library(ggplot2)
+library(lubridate)
+library(dbplyr)
+library(scales)
+
+PMUU_1C<-c(1.0000000000,
+1.0000000000,
+1.0000000000,
+0.9999999825,
+0.9976622397,
+0.9110265172,
+0.7879305738,
+0.6845601503,
+0.6008430152,
+0.5331335985,
+0.4778929082,
+0.4322887624,
+0.3941736900,
+0.3619405558,
+0.3343836931,
+0.3105906521)
+
+PMUU_1C<-PMUU_1C*100
+
+
+PMUU_2C<-c(0.9999999914,
+0.9999999881,
+0.9999999441,
+0.9997587765,
+0.8573104674,
+0.6147741854,
+0.4394691012,
+0.3224006275,
+0.2438618970,
+0.1897586715,
+0.1513360188,
+0.1232486161,
+0.1021775753,
+0.0860065117,
+0.0733469285,
+0.0632626625)
+
+PMUU_2C<-PMUU_2C*100
+
+
+PMUU_3C<-c(0.9999996008,
+0.9999994400,
+0.9999966669,
+0.9955607276,
+0.7192573955,
+0.4166371964,
+0.2413078020,
+0.1468116813,
+0.0943536169,
+0.0636795047,
+0.0447891977,
+0.0326070153,
+0.0244328131,
+0.0187587065,
+0.0147038891,
+0.0117327531)
+
+
+PMUU_3C<-PMUU_3C*100
+
+
+PMUU_4C<-c(0.9999955139,
+0.9999938099,
+0.9999666177,
+0.9858200060,
+0.6137697509,
+0.2826298904,
+0.1300250681,
+0.0646848756,
+0.0349950401,
+0.0203567905,
+0.0125719848,
+0.0081552513,
+0.0055096099,
+0.0038509245,
+0.0027701085,
+0.0020422544)
+
+PMUU_4C<-PMUU_4C*100
+
+
+PMUU_5C<-c(0.9999742223,
+0.9999655365,
+0.9998489527,
+0.9741671688,
+0.5310174177,
+0.1914521598,
+0.0688773992,
+0.0277670267,
+0.0125835661,
+0.0062911046,
+0.0034053285,
+0.0019658726,
+0.0011963944,
+0.0007607471,
+0.0005019302,
+0.0003417541)
+
+PMUU_5C<-PMUU_5C*100
+
+
+TMC1<-c(0.083,0.25,0.5,1,2,3,4,5,6,7,8,9,10,11,12,13)
+
+#options(scipen = 100)
+cores_barras<-c("#E6E6E6","#666666")
+pch=c(15,15)
+labels<-data.frame(xlab="Tempo médio de corte (horas)",ylab="Utilização (%)")
+
+plot(TMC1,PMUU_1C,type="o",col="black",pch=3,
+     xlab ="Tempo médio de corte (horas)"
+     ,ylab="Utilização (%)",main="Utilização dos recursos na infraestrutura",
+     mgp=c(2.5,0.5,0),las=2,ylim=c(0,100),xaxt="n",cex=0.6,cex.axis=1,xaxs="r")
+axis(side = 1, at = c(0.083,0.25,0.5,1,2,3,4,5,6,7,8,9,10,11,12,13), labels = c("0.083", "0.25", "0.5", "1", "2","3","4","5","6","7","8","9","10","11","12","13"), las=2)
+
+
+lines(TMC1,PMUU_1C,type="o",col="black",pch=3)
+lines(TMC1,PMUU_2C,type="o",col="yellow",pch=12)
+lines(TMC1,PMUU_3C,type="o",col="red",pch=6)
+lines(TMC1,PMUU_4C,type="o",col="blue",pch=8)
+lines(TMC1,PMUU_5C,type="o",col="purple",pch=10)
+
+
+legend("topright",pch=c(3,12,6,8,10),
+       title="Células acionadas:",
+       legend=c("1 Cél. Cost.","2 Cél. Cost.","3 Cél. Cost.","4 Cél. Cost.","5 Cél. Cost."),
+       col=c("Black","yellow","red","blue","purple","green"),
+       box.lty=1.5,cex = 0.8)
+
+```
+
+
+
+```{r someplot_ly5,include=FALSE, results='hide',message=FALSE, warning=FALSE,message = FALSE, include=FALSE, echo = FALSE}
+
+library(scales)
+library(ggplot2)
+
+#Gráfico barra 1 X 2
+
+cores_barras <- c("#E6E6E6","#666666")
+layout(matrix(c(0.083, 0.250, 0.5, 1,2,3,4,5,6,7,8, 9,10,11,12,13), nrow = 4, ncol = 2, byrow = TRUE))
+
+PMUU_1C_2C <- matrix(nrow = 4, ncol = 16)
+PMUU_1C_2C[1,] <- PMUU_1C
+PMUU_1C_2C[2,] <- PMUU_2C
+
+PMUU_1C_2C <- PMUU_1C_2C + 0.0001
+
+barplot(PMUU_1C_2C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-2 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100)) +
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","2 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+
+#Gráfico barra 1 X 3
+
+cores_barras <- c("#E6E6E6","#666666")
+layout(matrix(c(0.083, 0.250, 0.5, 1,2,3,4,5,6,7,8, 9,10,11,12,13), nrow = 4, ncol = 2, byrow = TRUE))
+
+PMUU_1C_3C <- matrix(nrow = 4, ncol = 16)
+PMUU_1C_3C[1,] <- PMUU_1C
+PMUU_1C_3C[2,] <- PMUU_3C
+
+PMUU_1C_3C <- PMUU_1C_3C + 0.0001
+
+barplot(PMUU_1C_3C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-3 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100)) +
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","3 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+#Gráfico barra 1 X 4
+
+layout(matrix(c(0.083, 0.250, 0.5, 1,2,3,4,5,6,7,8, 9,10,11,12,13), nrow = 4, ncol = 2, byrow = TRUE))
+
+PMUU_1C_4C <- matrix(nrow = 4, ncol = 16)
+PMUU_1C_4C[1,] <- PMUU_1C
+PMUU_1C_4C[2,] <- PMUU_4C
+
+PMUU_1C_4C <- PMUU_1C_4C + 0.0001
+
+barplot(PMUU_1C_4C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-4 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100)) +
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","4 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+
+#Gráfico barra 1 X 4
+
+layout(matrix(c(0.083, 0.250, 0.5, 1,2,3,4,5,6,7,8, 9,10,11,12,13), nrow = 4, ncol = 2, byrow = TRUE))
+
+PMUU_1C_5C <- matrix(nrow = 4, ncol = 16)
+PMUU_1C_5C[1,] <- PMUU_1C
+PMUU_1C_5C[2,] <- PMUU_5C
+
+PMUU_1C_5C <- PMUU_1C_5C + 0.0001
+
+barplot(PMUU_1C_5C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-5 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100))+
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","5 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+```
+
+```{r someplot8,results='hide', warning=FALSE,message = FALSE, include=TRUE, echo = FALSE}
+
+library(scales)
+library(ggplot2)
+
+par(mfrow = c(2, 2)) 
+
+#Gráfico1
+
+barplot(PMUU_1C_2C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-2 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100)) +
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","2 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+#Gráfico2
+
+barplot(PMUU_1C_3C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-3 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100)) +
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","3 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+#Gráfico3
+
+barplot(PMUU_1C_4C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-4 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100)) +
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","4 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+#Gráfico4
+
+barplot(PMUU_1C_5C, pch = pch, beside = T, col = cores_barras,
+        xlab = "Tempo médio de corte (horas)", ylab = "Utilização (%)",
+        main = "Utilização - 1-5 Células de Costura", names.arg = TMC1, yaxt = "n",
+        space = c(0, 2), xlim = c(0, 100), cex.axis = 1) +
+  scale_y_continuous(trans = 'log10', breaks = c(0, 1, 10, 100), labels = c(0, 1, 10, 100), expand = c(0,0), limits = c(0.1, 100))+
+coord_cartesian(ylim = c(0, 100))
+axis(side = 2, ylim=c(0,100),las=1,lwd.ticks=0.3,cex=0.1,cex.axis=1,mgp=c(3,0.5,0))
+options(scipen = 999)
+
+legend("topright", pch = pch, legend = c("1 Cél. Cost.","5 Cél. Cost."), col = cores_barras, cex = 0.8)
+
+
+```
