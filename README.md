@@ -1,2 +1,2 @@
-# IEEE_Performance_Evaluation_Textile_Manufacturing
+# Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets
 Novo repositório
