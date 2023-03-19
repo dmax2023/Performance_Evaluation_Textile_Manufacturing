@@ -1,0 +1,1285 @@
+Type: SRN Model
+
+Include:
+#include <stdio.h>
+#include "user.h"
+
+IncludeEnd
+Define:
+
+DefineEnd
+SubModel:
+Name: macacao
+Number of places: 52
+Number of immediate trans: 28
+Number of timed trans: 23
+Number of inf trans: 0
+Number of arcs:319
+Token displayed:true
+
+Place:
+Name: ChegadaL
+Token: 0
+Fluid: false
+X, Y: 164,204
+Number of connected objects: 1
+Dest: CortarT
+Arc:arc281
+vInputArc: [arc0]
+vOutputArc: [arc25, arc281]
+Place label:
+X, Y: 153,236
+Width, Height: 61,20
+Textwidth: 0
+
+Place:
+Name: LVinculado
+Token: 0
+Fluid: false
+X, Y: 324,204
+Number of connected objects: 0
+vInputArc: [arc2]
+vOutputArc: [arc3]
+Place label:
+X, Y: 309,236
+Width, Height: 69,20
+Textwidth: 0
+
+Place:
+Name: CRealizada
+Token: 0
+Fluid: false
+X, Y: 484,204
+Number of connected objects: 0
+vInputArc: [arc4]
+vOutputArc: [arc5]
+Place label:
+X, Y: 470,236
+Width, Height: 66,20
+Textwidth: 0
+
+Place:
+Name: DecisaoC
+Token: 0
+Fluid: false
+X, Y: 644,204
+Number of connected objects: 0
+vInputArc: [arc28]
+vOutputArc: [arc29, arc31]
+Place label:
+X, Y: 634,236
+Width, Height: 59,20
+Textwidth: 0
+
+Place:
+Name: FilaAC
+Token: 0
+Fluid: false
+X, Y: 804,124
+Number of connected objects: 0
+vInputArc: [arc32]
+vOutputArc: [arc10]
+Place label:
+X, Y: 802,156
+Width, Height: 43,20
+Textwidth: 0
+
+Place:
+Name: FBeneficiamento
+Token: 0
+Fluid: false
+X, Y: 1084,204
+Number of connected objects: 2
+Dest: ECOK
+Arc:arc105
+Dest: EACOK
+Arc:arc106
+vInputArc: [arc298, arc302]
+vOutputArc: [arc16]
+Place label:
+X, Y: 1054,236
+Width, Height: 99,20
+Textwidth: 0
+
+Place:
+Name: CelulasCDisp
+Token: 5
+Fluid: false
+X, Y: 924,324
+Number of connected objects: 1
+Dest: AcionarCCPB
+Arc:arc89
+vInputArc: [arc299, arc301, arc307, arc310]
+vOutputArc: [arc23, arc89]
+Place label:
+X, Y: 957,334
+Width, Height: 80,20
+Textwidth: 0
+
+Place:
+Name: FilaCPB
+Token: 0
+Fluid: false
+X, Y: 44,44
+Number of connected objects: 3
+Dest: EABOK
+Arc:arc92
+Dest: EBOK
+Arc:arc55
+Dest: AcionarCCPB
+Arc:arc84
+vInputArc: [arc257]
+vOutputArc: [arc84]
+Place label:
+X, Y: 32,19
+Width, Height: 50,20
+Textwidth: 0
+
+Place:
+Name: LVCCPB
+Token: 0
+Fluid: false
+X, Y: 284,524
+Number of connected objects: 0
+vInputArc: [arc60]
+vOutputArc: [arc61]
+Place label:
+X, Y: 275,556
+Width, Height: 56,20
+Textwidth: 0
+
+Place:
+Name: CPBRealizada
+Token: 0
+Fluid: false
+X, Y: 444,524
+Number of connected objects: 0
+vInputArc: [arc62]
+vOutputArc: [arc63]
+Place label:
+X, Y: 422,556
+Width, Height: 82,20
+Textwidth: 0
+
+Place:
+Name: DecisaoCPB
+Token: 0
+Fluid: false
+X, Y: 604,524
+Number of connected objects: 2
+Dest: CPBRuim
+Arc:arc86
+Dest: CPBOK
+Arc:arc85
+vInputArc: [arc64]
+vOutputArc: [arc85, arc86]
+Place label:
+X, Y: 586,556
+Width, Height: 75,20
+Textwidth: 0
+
+Place:
+Name: FilaACPB
+Token: 0
+Fluid: false
+X, Y: 764,524
+Number of connected objects: 0
+vInputArc: [arc70]
+vOutputArc: [arc71]
+Place label:
+X, Y: 754,556
+Width, Height: 59,20
+Textwidth: 0
+
+Place:
+Name: FilaPE
+Token: 0
+Fluid: false
+X, Y: 1004,444
+Number of connected objects: 1
+Dest: ECPBOK
+Arc:arc297
+vInputArc: [arc306, arc309]
+vOutputArc: [arc77]
+Place label:
+X, Y: 1003,422
+Width, Height: 41,20
+Textwidth: 0
+
+Place:
+Name: FilaE
+Token: 0
+Fluid: false
+X, Y: 1164,444
+Number of connected objects: 3
+Dest: Embalar
+Arc:arc127
+Dest: EPEOK
+Arc:arc128
+Dest: EAPEOK
+Arc:arc129
+vInputArc: [arc258]
+vOutputArc: [arc127]
+Place label:
+X, Y: 1167,476
+Width, Height: 33,20
+Textwidth: 0
+
+Place:
+Name: FilaEstoque
+Token: 0
+Fluid: false
+X, Y: 1324,444
+Number of connected objects: 2
+Dest: EEOK
+Arc:arc196
+Dest: EAEOK
+Arc:arc197
+vInputArc: [arc259]
+vOutputArc: [arc193]
+Place label:
+X, Y: 1308,476
+Width, Height: 70,20
+Textwidth: 0
+
+Place:
+Name: CapacidadeMaximaLotes
+Token: 20
+Fluid: false
+X, Y: 684,604
+Number of connected objects: 1
+Dest: CortarT
+Arc:arc318
+vInputArc: [arc314]
+vOutputArc: [arc318]
+Place label:
+X, Y: 631,636
+Width, Height: 145,20
+Textwidth: 0
+
+Immediate:
+Name: AcionarCelula
+Width: 5
+Height: 32
+X, Y: 258,204
+Guard: null
+Probability: 1
+Choice Input: Constant value
+Number of connected objects: 0
+vInputArc: [arc23, arc25]
+vOutputArc: [arc2]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 6
+Transition label:
+X, Y: 221,236
+Width, Height: 83,20
+Textwidth: 0
+
+Immediate:
+Name: CRuim
+Width: 5
+Height: 32
+X, Y: 738,124
+Guard: null
+Probability: probmenor
+Choice Input: Constant value
+Number of connected objects: 0
+vInputArc: [arc31]
+vOutputArc: [arc32]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 4
+Transition label:
+X, Y: 720,156
+Width, Height: 44,20
+Textwidth: 0
+
+Immediate:
+Name: COK
+Width: 5
+Height: 32
+X, Y: 738,204
+Guard: null
+Probability: probmaior
+Choice Input: Constant value
+Number of connected objects: 1
+Dest: CelulasCDisp
+Arc:arc299
+vInputArc: [arc29]
+vOutputArc: [arc298, arc299]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 5
+Transition label:
+X, Y: 726,236
+Width, Height: 33,20
+Textwidth: 0
+
+Immediate:
+Name: AcionarCCPB
+Width: 5
+Height: 32
+X, Y: 58,524
+Guard: null
+Probability: 1
+Choice Input: Constant value
+Number of connected objects: 0
+vInputArc: [arc84, arc89]
+vOutputArc: [arc60]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 3
+Transition label:
+X, Y: 21,556
+Width, Height: 83,20
+Textwidth: 0
+
+Immediate:
+Name: CPBOK
+Width: 5
+Height: 32
+X, Y: 698,444
+Guard: null
+Probability: probmaior
+Choice Input: Constant value
+Number of connected objects: 1
+Dest: CelulasCDisp
+Arc:arc307
+vInputArc: [arc85]
+vOutputArc: [arc306, arc307]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 2
+Transition label:
+X, Y: 678,476
+Width, Height: 49,20
+Textwidth: 0
+
+Immediate:
+Name: CPBRuim
+Width: 5
+Height: 32
+X, Y: 698,524
+Guard: null
+Probability: probmenor
+Choice Input: Constant value
+Number of connected objects: 0
+vInputArc: [arc86]
+vOutputArc: [arc70]
+Type Transition: Immediate
+Place Dependent: null
+Value Transition: 1
+Transition label:
+X, Y: 672,556
+Width, Height: 60,20
+Textwidth: 0
+
+Timed:
+Name: Costurar
+Width: 14
+Height: 32
+X, Y: 413,204
+Number of connected objects: 0
+vInputArc: [arc3]
+vOutputArc: [arc4]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: costurar
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 394,236
+Width, Height: 54,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: AvaliarC
+Width: 14
+Height: 32
+X, Y: 573,204
+Number of connected objects: 0
+vInputArc: [arc5]
+vOutputArc: [arc28]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: avaliarc
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 555,236
+Width, Height: 53,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: AjustarC
+Width: 14
+Height: 32
+X, Y: 893,124
+Number of connected objects: 1
+Dest: CelulasCDisp
+Arc:arc301
+vInputArc: [arc10]
+vOutputArc: [arc301, arc302]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: ajustarc
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 874,156
+Width, Height: 54,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: CortarT
+Width: 14
+Height: 32
+X, Y: 93,204
+Number of connected objects: 0
+vInputArc: [arc281, arc318]
+vOutputArc: [arc0]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: cortar
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 76,236
+Width, Height: 50,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: Beneficiar
+Width: 14
+Height: 32
+X, Y: 1253,44
+Number of connected objects: 1
+Dest: BR
+Arc:arc38
+vInputArc: [arc16]
+vOutputArc: [arc257]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: beneficiar
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 1231,76
+Width, Height: 61,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: CosPB
+Width: 14
+Height: 32
+X, Y: 373,524
+Number of connected objects: 0
+vInputArc: [arc61]
+vOutputArc: [arc62]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: costurarpb
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 360,556
+Width, Height: 43,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: AvaCPB
+Width: 14
+Height: 32
+X, Y: 533,524
+Number of connected objects: 0
+vInputArc: [arc63]
+vOutputArc: [arc64]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: avaliarcpb
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 515,556
+Width, Height: 52,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: ACPB
+Width: 14
+Height: 32
+X, Y: 853,524
+Number of connected objects: 1
+Dest: CelulasCDisp
+Arc:arc310
+vInputArc: [arc71]
+vOutputArc: [arc309, arc310]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: ajustarcpb
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 842,556
+Width, Height: 39,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: PreEmb
+Width: 14
+Height: 32
+X, Y: 1093,444
+Number of connected objects: 1
+Dest: PER
+Arc:arc110
+vInputArc: [arc77]
+vOutputArc: [arc258]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: preembalar
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 1076,476
+Width, Height: 50,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: Embalar
+Width: 14
+Height: 32
+X, Y: 1253,444
+Number of connected objects: 1
+Dest: P33
+Arc:arc139
+vInputArc: [arc127]
+vOutputArc: [arc259]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: embalar
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 1236,476
+Width, Height: 51,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Timed:
+Name: Estocar
+Width: 14
+Height: 32
+X, Y: 1413,444
+Number of connected objects: 4
+Dest: P51
+Arc:arc314
+Dest: P50
+Arc:arc291
+Dest: P49
+Arc:arc278
+Dest: CEDisp
+Arc:arc207
+vInputArc: [arc193]
+vOutputArc: [arc314]
+Type Transition: Timed
+Place Dependent: null
+Value Transition: estocar
+Value1 Transition: null
+Value2 Transition: null
+Value3 Transition: null
+Transition label:
+X, Y: 1397,476
+Width, Height: 48,20
+Textwidth: 0
+Guard: null
+Policy: Preemptive repeat different
+Affected: Preemptive repeat different
+Priority: null
+Choice Input: Constant
+Distribution: Exponential
+
+Arc:
+Name: arc0
+X1, Y1, X2, Y2: 107,214,164,215
+Type: Regular
+Multiplicity: 1
+Src: CortarT
+Dest: ChegadaL
+ArcPoints: [java.awt.Point[x=107,y=214], java.awt.Point[x=164,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc2
+X1, Y1, X2, Y2: 263,214,324,215
+Type: Regular
+Multiplicity: 1
+Src: AcionarCelula
+Dest: LVinculado
+ArcPoints: [java.awt.Point[x=263,y=214], java.awt.Point[x=324,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc3
+X1, Y1, X2, Y2: 355,215,413,215
+Type: Regular
+Multiplicity: 1
+Src: LVinculado
+Dest: Costurar
+ArcPoints: [java.awt.Point[x=355,y=215], java.awt.Point[x=413,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc4
+X1, Y1, X2, Y2: 427,214,484,215
+Type: Regular
+Multiplicity: 1
+Src: Costurar
+Dest: CRealizada
+ArcPoints: [java.awt.Point[x=427,y=214], java.awt.Point[x=484,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc5
+X1, Y1, X2, Y2: 515,215,573,215
+Type: Regular
+Multiplicity: 1
+Src: CRealizada
+Dest: AvaliarC
+ArcPoints: [java.awt.Point[x=515,y=215], java.awt.Point[x=573,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc10
+X1, Y1, X2, Y2: 835,135,893,135
+Type: Regular
+Multiplicity: 1
+Src: FilaAC
+Dest: AjustarC
+ArcPoints: [java.awt.Point[x=835,y=135], java.awt.Point[x=893,y=135]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc16
+X1, Y1, X2, Y2: 1108,206,1253,61
+Type: Regular
+Multiplicity: 1
+Src: FBeneficiamento
+Dest: Beneficiar
+ArcPoints: [java.awt.Point[x=1108,y=206], java.awt.Point[x=1253,y=61]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc23
+X1, Y1, X2, Y2: 924,340,263,223
+Type: Regular
+Multiplicity: 1
+Src: CelulasCDisp
+Dest: AcionarCelula
+ArcPoints: [java.awt.Point[x=924,y=340], java.awt.Point[x=263,y=223]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc25
+X1, Y1, X2, Y2: 195,215,258,215
+Type: Regular
+Multiplicity: 1
+Src: ChegadaL
+Dest: AcionarCelula
+ArcPoints: [java.awt.Point[x=195,y=215], java.awt.Point[x=258,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc28
+X1, Y1, X2, Y2: 587,214,644,215
+Type: Regular
+Multiplicity: 1
+Src: AvaliarC
+Dest: DecisaoC
+ArcPoints: [java.awt.Point[x=587,y=214], java.awt.Point[x=644,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc29
+X1, Y1, X2, Y2: 675,215,738,215
+Type: Regular
+Multiplicity: 1
+Src: DecisaoC
+Dest: COK
+ArcPoints: [java.awt.Point[x=675,y=215], java.awt.Point[x=738,y=215]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc31
+X1, Y1, X2, Y2: 668,206,738,136
+Type: Regular
+Multiplicity: 1
+Src: DecisaoC
+Dest: CRuim
+ArcPoints: [java.awt.Point[x=668,y=206], java.awt.Point[x=738,y=136]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc32
+X1, Y1, X2, Y2: 743,134,804,135
+Type: Regular
+Multiplicity: 1
+Src: CRuim
+Dest: FilaAC
+ArcPoints: [java.awt.Point[x=743,y=134], java.awt.Point[x=804,y=135]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc60
+X1, Y1, X2, Y2: 62,536,284,536
+Type: Regular
+Multiplicity: 1
+Src: AcionarCCPB
+Dest: LVCCPB
+ArcPoints: [java.awt.Point[x=62,y=536], java.awt.Point[x=284,y=536]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc61
+X1, Y1, X2, Y2: 315,535,373,535
+Type: Regular
+Multiplicity: 1
+Src: LVCCPB
+Dest: CosPB
+ArcPoints: [java.awt.Point[x=315,y=535], java.awt.Point[x=373,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc62
+X1, Y1, X2, Y2: 387,534,444,535
+Type: Regular
+Multiplicity: 1
+Src: CosPB
+Dest: CPBRealizada
+ArcPoints: [java.awt.Point[x=387,y=534], java.awt.Point[x=444,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc63
+X1, Y1, X2, Y2: 475,535,533,535
+Type: Regular
+Multiplicity: 1
+Src: CPBRealizada
+Dest: AvaCPB
+ArcPoints: [java.awt.Point[x=475,y=535], java.awt.Point[x=533,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc64
+X1, Y1, X2, Y2: 547,534,604,535
+Type: Regular
+Multiplicity: 1
+Src: AvaCPB
+Dest: DecisaoCPB
+ArcPoints: [java.awt.Point[x=547,y=534], java.awt.Point[x=604,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc70
+X1, Y1, X2, Y2: 703,534,764,535
+Type: Regular
+Multiplicity: 1
+Src: CPBRuim
+Dest: FilaACPB
+ArcPoints: [java.awt.Point[x=703,y=534], java.awt.Point[x=764,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc71
+X1, Y1, X2, Y2: 795,535,853,535
+Type: Regular
+Multiplicity: 1
+Src: FilaACPB
+Dest: ACPB
+ArcPoints: [java.awt.Point[x=795,y=535], java.awt.Point[x=853,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc77
+X1, Y1, X2, Y2: 1035,455,1093,455
+Type: Regular
+Multiplicity: 1
+Src: FilaPE
+Dest: PreEmb
+ArcPoints: [java.awt.Point[x=1035,y=455], java.awt.Point[x=1093,y=455]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc84
+X1, Y1, X2, Y2: 62,75,62,524
+Type: Regular
+Multiplicity: 1
+Src: FilaCPB
+Dest: AcionarCCPB
+ArcPoints: [java.awt.Point[x=62,y=75], java.awt.Point[x=62,y=524]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc85
+X1, Y1, X2, Y2: 628,526,698,456
+Type: Regular
+Multiplicity: 1
+Src: DecisaoCPB
+Dest: CPBOK
+ArcPoints: [java.awt.Point[x=628,y=526], java.awt.Point[x=698,y=456]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc86
+X1, Y1, X2, Y2: 635,535,698,535
+Type: Regular
+Multiplicity: 1
+Src: DecisaoCPB
+Dest: CPBRuim
+ArcPoints: [java.awt.Point[x=635,y=535], java.awt.Point[x=698,y=535]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc89
+X1, Y1, X2, Y2: 925,346,62,541
+Type: Regular
+Multiplicity: 1
+Src: CelulasCDisp
+Dest: AcionarCCPB
+ArcPoints: [java.awt.Point[x=925,y=346], java.awt.Point[x=62,y=541]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc127
+X1, Y1, X2, Y2: 1195,455,1253,455
+Type: Regular
+Multiplicity: 1
+Src: FilaE
+Dest: Embalar
+ArcPoints: [java.awt.Point[x=1195,y=455], java.awt.Point[x=1253,y=455]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc193
+X1, Y1, X2, Y2: 1355,455,1413,455
+Type: Regular
+Multiplicity: 1
+Src: FilaEstoque
+Dest: Estocar
+ArcPoints: [java.awt.Point[x=1355,y=455], java.awt.Point[x=1413,y=455]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Arc:
+Name: arc257
+X1, Y1, X2, Y2: 1253,62,75,62
+Type: Regular
+Multiplicity: 1
+Src: Beneficiar
+Dest: FilaCPB
+ArcPoints: [java.awt.Point[x=1253,y=62], java.awt.Point[x=75,y=62]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc258
+X1, Y1, X2, Y2: 1107,454,1164,455
+Type: Regular
+Multiplicity: 1
+Src: PreEmb
+Dest: FilaE
+ArcPoints: [java.awt.Point[x=1107,y=454], java.awt.Point[x=1164,y=455]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc259
+X1, Y1, X2, Y2: 1267,454,1324,455
+Type: Regular
+Multiplicity: 1
+Src: Embalar
+Dest: FilaEstoque
+ArcPoints: [java.awt.Point[x=1267,y=454], java.awt.Point[x=1324,y=455]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc281
+X1, Y1, X2, Y2: 165,227,107,220
+Type: Inhibitor
+Multiplicity: 1
+Src: ChegadaL
+Dest: CortarT
+ArcPoints: [java.awt.Point[x=165,y=227], java.awt.Point[x=107,y=220]]
+Fluid Arc: false
+Choice Input: Constant
+Circle1, Circle2: 110,219
+
+Arc:
+Name: arc298
+X1, Y1, X2, Y2: 743,216,1084,217
+Type: Regular
+Multiplicity: 1
+Src: COK
+Dest: FBeneficiamento
+ArcPoints: [java.awt.Point[x=743,y=216], java.awt.Point[x=1084,y=217]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc299
+X1, Y1, X2, Y2: 743,217,928,329
+Type: Regular
+Multiplicity: 1
+Src: COK
+Dest: CelulasCDisp
+ArcPoints: [java.awt.Point[x=743,y=217], java.awt.Point[x=928,y=329]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc301
+X1, Y1, X2, Y2: 904,156,939,324
+Type: Regular
+Multiplicity: 1
+Src: AjustarC
+Dest: CelulasCDisp
+ArcPoints: [java.awt.Point[x=904,y=156], java.awt.Point[x=939,y=324]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc302
+X1, Y1, X2, Y2: 907,139,1086,211
+Type: Regular
+Multiplicity: 1
+Src: AjustarC
+Dest: FBeneficiamento
+ArcPoints: [java.awt.Point[x=907,y=139], java.awt.Point[x=1086,y=211]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc306
+X1, Y1, X2, Y2: 703,456,1004,457
+Type: Regular
+Multiplicity: 1
+Src: CPBOK
+Dest: FilaPE
+ArcPoints: [java.awt.Point[x=703,y=456], java.awt.Point[x=1004,y=457]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc307
+X1, Y1, X2, Y2: 703,454,924,344
+Type: Regular
+Multiplicity: 1
+Src: CPBOK
+Dest: CelulasCDisp
+ArcPoints: [java.awt.Point[x=703,y=454], java.awt.Point[x=924,y=344]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc309
+X1, Y1, X2, Y2: 867,530,1004,464
+Type: Regular
+Multiplicity: 1
+Src: ACPB
+Dest: FilaPE
+ArcPoints: [java.awt.Point[x=867,y=530], java.awt.Point[x=1004,y=464]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc310
+X1, Y1, X2, Y2: 861,524,931,353
+Type: Regular
+Multiplicity: 1
+Src: ACPB
+Dest: CelulasCDisp
+ArcPoints: [java.awt.Point[x=861,y=524], java.awt.Point[x=931,y=353]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc314
+X1, Y1, X2, Y2: 1413,463,715,619
+Type: Regular
+Multiplicity: 1
+Src: Estocar
+Dest: CapacidadeMaximaLotes
+ArcPoints: [java.awt.Point[x=1413,y=463], java.awt.Point[x=715,y=619]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: output
+
+Arc:
+Name: arc318
+X1, Y1, X2, Y2: 685,613,107,227
+Type: Regular
+Multiplicity: 1
+Src: CapacidadeMaximaLotes
+Dest: CortarT
+ArcPoints: [java.awt.Point[x=685,y=613], java.awt.Point[x=107,y=227]]
+Fluid Arc: false
+Choice Input: Constant
+TypeIO: input
+
+Variable: cortar
+Kind: Param
+Type: double
+Value: 2
+Variable: costurar
+Kind: Global
+Type: double
+Value: 0.5
+Variable: avaliarc
+Kind: Global
+Type: double
+Value: 2.5
+Variable: beneficiar
+Kind: Global
+Type: double
+Value: 1
+Variable: ajustarc
+Kind: Global
+Type: double
+Value: 5
+Variable: probmaior
+Kind: Global
+Type: double
+Value: 0.99
+Variable: probmenor
+Kind: Global
+Type: double
+Value: 0.01
+Variable: costurarpb
+Kind: Global
+Type: double
+Value: 0.6666666667
+Variable: avaliarcpb
+Kind: Global
+Type: double
+Value: 3.333333333
+Variable: ajustarcpb
+Kind: Global
+Type: double
+Value: 6.666666667
+Variable: preembalar
+Kind: Global
+Type: double
+Value: 1.333332741
+Variable: embalar
+Kind: Global
+Type: double
+Value: 1.714286694
+Variable: estocar
+Kind: Global
+Type: double
+Value: 2.39999808
+Function: Ac_init
+Kind: spnp
+Type: void
+Body: /* Information on the net structure */ 
+pr_net_info();
+
+End of Body.
+Function: Assert
+Kind: spnp
+Type: int
+Body: 
+End of Body.
+Function: Ac_reach
+Kind: spnp
+Type: void
+Body: /* Information on the reachability graph */ 
+pr_rg_info();
+
+End of Body.
+Function: Ac_final
+Kind: spnp
+Type: void
+Body: 
+End of Body.
+Function: Utilizacao
+Kind: reward
+Type: double
+Body: return(((mark("LVinculado"))+(mark("CRealizada"))+(mark("DecisaoC"))+
+(mark("FilaAC"))+
+(mark("LVCCPB"))+(mark("CPBRealizada"))+(mark("DecisaoCPB"))+
+(mark("FilaACPB")))/
+((mark("LVinculado"))+(mark("CRealizada"))+(mark("DecisaoC"))+
+(mark("FilaAC"))+
+(mark("LVCCPB"))+(mark("CPBRealizada"))+(mark("DecisaoCPB"))+
+(mark("FilaACPB"))+
+(mark("CelulasCDisp"))));
+End of Body.
+Function: Throughput
+Kind: reward
+Type: double
+Body: return(rate("Estocar"));
+End of Body.
+Function: TR1
+Kind: reward
+Type: double
+Body: return((mark("ChegadaL"))+(mark("LVinculado"))
++(mark("CRealizada"))
++(mark("DecisaoC"))
++(probmenor*(mark("FilaAC")))+(mark("FBeneficiamento"))
++(mark("FilaCPB"))
++(mark("LVCCPB"))+(mark("CPBRealizada"))
++(mark("DecisaoCPB"))
++(probmenor*(mark("FilaACPB")))+(mark("FilaPE"))
++(mark("FilaE"))
++(mark("FilaEstoque")))/(1/(rate("Estocar")));
+End of Body.
+Function: NL
+Kind: reward
+Type: double
+Body: return((mark("ChegadaL"))+(mark("LVinculado"))
++(mark("CRealizada"))
++(mark("DecisaoC"))
++(probmenor*(mark("FilaAC")))+(mark("FBeneficiamento"))
++(mark("FilaCPB"))
++(mark("LVCCPB"))+(mark("CPBRealizada"))
++(mark("DecisaoCPB"))
++(probmenor*(mark("FilaACPB")))+(mark("FilaPE"))
++(mark("FilaE"))
++(mark("FilaEstoque")));
+
+End of Body.
