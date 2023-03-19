@@ -1,4 +1,4 @@
-#Código para modelagem, simulação e analise estocástica para avaliação de desempenho de manufatura têxtil.  
+# Code for modeling, simulation and stochastic analysis for evaluating textile manufacturing performance.
 
 
 ![PNG_Graphical Abstract_PT](https://user-images.githubusercontent.com/128255987/226149427-b0b54a83-c568-4dac-b16e-ac8a1c1667e2.png)
@@ -6,15 +6,30 @@
 
 
 
-Recursos e documentação extra para o manuscrito "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets" submetido na IEEE Latin America Transactions. Os arquivos são organizados da seguinte forma:
-- Modelo gerado na ferramenta de modelagem SPNP;
-- Script das métricas para análise estocástica no modelo;
-- Resultados compilados na IDE RStudio com o pacote R-Markdown;
+Extra resources and documentation for the manuscript "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets" submitted to the IEEE Latin America Transactions. The files are organized as follows:
 
-1- A instalação do SPNP pode ser observada no link abaixo, onde são apresentadas as especificidades dessa ferramenta que ainda é pouco explorada na academia;
+- Model generated in the SPNP modeling tool;
+- Results compiled in the RStudio IDE with the R-Markdown package;
+
+Early stages
+
+1- The installation of SPNP can be seen at the link below, where the specificities of this tool, which is still little explored in academia, are presented;
 
 https://youtu.be/UtGi2G5W_U0
 
-2- A configuração básica do modelo pode ser observada no link abaixo, onde são apresentadas os principais recursos para a composição de um modelo básico;
+2- The basic configuration of the model can be seen in the link below, where the main resources for the composition of a basic model are presented;
 
 https://youtu.be/W-xguYOs6GM
+
+3- Application of the stochastic analysis of the model that represents the case study of the productive process of textile manufacturing.
+
+4- compilation of results obtained in RStudio for evaluation and validation.
+
+Requirements
+
+Installation of SPNP 0.2.
+
+installation RStudio 4.2.2.
+
+
+
