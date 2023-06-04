@@ -27,9 +27,11 @@ https://youtu.be/W-xguYOs6GM
 
 Requirements
 
-Installation of SPNP 0.2.
+- Computer with Microsoft Windows 10 Professional 64-bit operating system, Core I7 2.90 GHz processor generation 7, 250 GB SSD HDD and 16 GB RAM memory.
 
-installation RStudio 4.2.2.
+- Installation of SPNP 0.2.
+
+- installation RStudio 4.2.2.
 
 
 
