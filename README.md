@@ -3,7 +3,7 @@
 
 ![PNG_Graphical Abstract_PT](https://user-images.githubusercontent.com/128255987/226149427-b0b54a83-c568-4dac-b16e-ac8a1c1667e2.png)
 
-
+![PNG_Graphical Abstract_8315_EN](https://github.com/dmax2023/IEEE_Performance_Evaluation_Textile_Manufacturing/assets/128255987/12341486-e68e-4b35-b1d3-04751444721c)
 
 
 Extra resources and documentation for the manuscript "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets" submitted to the IEEE Latin America Transactions. The files are organized as follows:
