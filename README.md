@@ -1,9 +1,9 @@
 # Code for modeling, simulation and stochastic analysis for evaluating textile manufacturing performance.
 
-![PNG_Graphical Abstract_8315_EN](https://github.com/dmax2023/IEEE_Performance_Evaluation_Textile_Manufacturing/assets/128255987/12341486-e68e-4b35-b1d3-04751444721c)
+![Performance Evaluation of a Textile Manufacturing (4)](https://github.com/dmax2023/IEEE_Performance_Evaluation_Textile_Manufacturing/assets/128255987/3b985eed-7737-45b2-a898-856e42c097dc)
 
 
-Extra resources and documentation for the manuscript "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets" submitted to the IEEE Latin America Transactions. The files are organized as follows:
+Extra resources and documentation for the manuscript "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets". The files are organized as follows:
 
 - Model generated in the SPNP modeling tool;
 - Results compiled in the RStudio IDE with the R-Markdown package;
