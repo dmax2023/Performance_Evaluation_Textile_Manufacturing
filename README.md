@@ -1,7 +1,7 @@
 # Code for modeling, simulation and stochastic analysis for evaluating textile manufacturing performance.
 
-![Performance Evaluation of a Textile Manufacturing (4)](https://github.com/dmax2023/IEEE_Performance_Evaluation_Textile_Manufacturing/assets/128255987/3b985eed-7737-45b2-a898-856e42c097dc)
 
+![Performance Evaluation of a Textile Manufacturing (5)](https://github.com/dmax2023/Performance_Evaluation_Textile_Manufacturing/assets/128255987/a5545c80-7863-4d1f-ae32-13044c11901d)
 
 Extra resources and documentation for the manuscript "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets". The files are organized as follows:
 
