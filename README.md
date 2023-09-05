@@ -3,7 +3,7 @@
 
 ![Performance Evaluation of a Textile Manufacturing (5)](https://github.com/dmax2023/Performance_Evaluation_Textile_Manufacturing/assets/128255987/a5545c80-7863-4d1f-ae32-13044c11901d)
 
-Extra resources and documentation for the manuscript "Performance Evaluation of a Textile Manufacturing Using Stochastic Petri Nets". The files are organized as follows:
+Extra resources and documentation for the manuscript "Evaluation of Operational Performance of a Textile Manufacturing using Stochastic Petri Nets". The files are organized as follows:
 
 - Model generated in the SPNP modeling tool;
 - Results compiled in the RStudio IDE with the R-Markdown package;
