@@ -1,4 +1,4 @@
-# Code for modeling, simulation and stochastic analysis for evaluating textile manufacturing performance.
+# Code for modeling, simulation, stochastic analysis and performance evaluation of textile manufacturing.
 
 
 ![Performance Evaluation of a Textile Manufacturing (5)](https://github.com/dmax2023/Performance_Evaluation_Textile_Manufacturing/assets/128255987/a5545c80-7863-4d1f-ae32-13044c11901d)
